@@ -61,6 +61,9 @@ while True:
             #print(type(img))
             home = expanduser("~")
             file_path = dir_path + file_name[-1]
+            if os.path.exists(file_path):
+                print('File exist! ' + file_path, flush = True)
+                continue
             file = open(file_path, 'wb')
             file.write(img)
             file.close()
