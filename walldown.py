@@ -11,10 +11,21 @@ import datetime
 
 now = datetime.datetime.now()
 
-dir = expanduser("~")+'/Pictures/Wallpapers/' + now.strftime("%y.%m.%d")+'/'
+dir_path = expanduser("~")+'/Pictures/Wallpapers/' + now.strftime("%y.%m.%d")+'/'
+
+if os.name == 'nt':
+    dir_path = dir_path.replace('/', '\\')
+    #print(dir_path)
+    
 #now = datetime.datetime.now() print(now.year)
+#print(dir_path)
+if not os.path.exists(dir_path):
+    os.makedirs(dir_path)
+
+print('Ready to work, wait for urls!', flush = True)
 
 recent_value = ""
+
 while True:
     tmp_value = pyperclip.paste()
     if tmp_value != recent_value:
@@ -39,7 +50,7 @@ while True:
             img = page[pos + len(find):pos + 300]
             pos = img.find('" alt="')
             img = img[:pos]
-            print(img) #'https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-294165.jpg'
+            print('URL captured: ' + img, flush = True) #'https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-294165.jpg'
             file_name = img.split('/');
             conn = http.client.HTTPSConnection('wallpapers.wallhaven.cc')
             conn.request('GET', 'https://' + img)
@@ -49,8 +60,9 @@ while True:
             #img = res.read().decode('utf16')
             #print(type(img))
             home = expanduser("~")
-            file = open(dir+file_name[-1], 'wb')
+            file_path = dir_path + file_name[-1]
+            file = open(file_path, 'wb')
             file.write(img)
             file.close()
-            print('Download finished!')
+            print('Download finished! To: ' + file_path, flush = True)
     time.sleep(0.1)
