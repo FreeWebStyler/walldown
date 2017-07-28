@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import time
 import sys
 import os
@@ -16,7 +18,7 @@ dir_path = expanduser("~")+'/Pictures/Wallpapers/' + now.strftime("%y.%m.%d")+'/
 if os.name == 'nt':
     dir_path = dir_path.replace('/', '\\')
     #print(dir_path)
-    
+
 #now = datetime.datetime.now() print(now.year)
 #print(dir_path)
 if not os.path.exists(dir_path):
