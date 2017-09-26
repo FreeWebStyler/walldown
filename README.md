@@ -12,7 +12,7 @@ Interpreter: Python 3
 
 Python package "pyperclip" [](http://pyperclip.readthedocs.io/en/latest/introduction.html)
 
-To instal on Mint execute commands:
+To install on Mint execute commands:
 
 `apt install python3 &&`
 `apt install python3-pip &&`
