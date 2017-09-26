@@ -15,9 +15,13 @@ Python package "pyperclip" [](http://pyperclip.readthedocs.io/en/latest/introduc
 To install on Mint execute commands:
 
 `apt install python3 &&`
+
 `apt install python3-pip &&`
+
 `pip3 install --upgrade pip &&`
-`pip3 install setuptools
+
+`pip3 install setuptools &&`
+
 `pip3 install pyperclip`
 
 Possible some commands need to be run by root (with sudo).
